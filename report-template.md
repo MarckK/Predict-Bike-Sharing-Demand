@@ -27,27 +27,25 @@ Plotting the histogram of the training data during EDA gave insights into the di
 Trying with some model algorithms such as `lightGBM` and `NeuralNets` and its related hyperparameters moderately affected the model performance. Although hyperparameter tuned models delivered competitive performances in comparison to the model with EDA and added features, the latter performed better on the Kaggle (test) dataset.
 
 ### If you were given more time with this dataset, where do you think you would spend more time?
-I would spend more time  experimenting with hyperparameter tuning with AutoGluon. What I notices from the current trials is that the performance of the hyperparameter optimized models were sub-optimal because the hyperparameters are tuned with a fixed set of values given by the user, which limit the options AutoGluon could explore. It is important to be quite knowledgeable about the 
-hyper parameters when setting them manually and/or to have a lot of time for experimentation.
+Given more time to work with this dataset, I would spend more time experimenting with hyperparameter tuning with AutoGluon. The current trials show that the performance of hyperparameter optimized models can be sub-optimal because the hyperparameters are tuned with a fixed set of values given by the user, which then limits the options AutoGluon can explore. It is important to be quite knowledgeable about the hyperparameters when setting them manually and/or to have a lot of time for experimentation. 
+
+I would like to investigate additional potential outcomes when AutoGluon is run for an extended period with a high quality preset and enhanced hyperparameter tuning.
 
 ### Create a table with the models you ran, the hyperparameters modified, and the kaggle score.
+
 |model|hpo1|hpo2|hpo3|score|
 |--|--|--|--|--|
-|initial|?|?|?|?|
-|add_features|?|?|?|?|
-|hpo|?|?|?|?|
+|initial|prescribed_values|prescribed_values|"presets: 'best_quality' (auto_stack=True)"|1.80660|
+|add_features|prescribed_values|prescribed_values|"presets: 'best_quality' (auto_stack=True)"|0.46258|
+|hpo|Tree-Based Models: (GBM, XT, XGB & RF)|KNN|"presets: 'best_quality'|0.47702|
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
 
-TODO: Replace the image below with your own.
-
-![model_train_score.png](img/model_train_score.png)
+![model_train_score.png](model_train_score.png)
 
 ### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
 
-TODO: Replace the image below with your own.
-
-![model_test_score.png](img/model_test_score.png)
+![model_test_score.png](model_test_score.png)
 
 ## Summary
-TODO: Add your explanation
+The top-ranked model was the (add features) model named WeightedEnsemble_L3, with the best Kaggle score of 0.46258 (on the test dataset). This top-ranked AutoGluon-based model achieved significantly improved results by utilizing data obtained after exploratory data analysis (EDA) and feature engineering without hyperparameter optimization. Leveraging automatic hyperparameter tuning, model selection/ensembling and architecture search enables AutoGluon to explore and exploit the best  options. 
